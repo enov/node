@@ -1246,7 +1246,7 @@ class QueryAnyWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
-    naddrttls = std::min(naddrttls, arraysize(addrttls));
+    naddrttls = std::min(naddrttls, static_cast<int>(arraysize(addrttls)));
     uint32_t a_count = ret->Length();
     if (status != ARES_SUCCESS && status != ARES_ENODATA) {
       ParseError(status);
@@ -1294,7 +1294,7 @@ class QueryAnyWrap: public QueryWrap {
                                ret,
                                addr6ttls,
                                &naddr6ttls);
-    naddr6ttls = std::min(naddr6ttls, arraysize(addr6ttls));
+    naddr6ttls = std::min(naddr6ttls, static_cast<int>(arraysize(addr6ttls)));
     uint32_t aaaa_count = ret->Length() - a_count;
     if (status != ARES_SUCCESS && status != ARES_ENODATA) {
       ParseError(status);
@@ -1433,7 +1433,7 @@ class QueryAWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
-    naddrttls = std::min(naddrttls, arraysize(addrttls));
+    naddrttls = std::min(naddrttls, static_cast<int>(arraysize(addrttls)));
     if (status != ARES_SUCCESS) {
       ParseError(status);
       return;
@@ -1480,7 +1480,7 @@ class QueryAaaaWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
-    naddrttls = std::min(naddrttls, arraysize(addrttls));
+    naddrttls = std::min(naddrttls, static_cast<int>(arraysize(addrttls)));
     if (status != ARES_SUCCESS) {
       ParseError(status);
       return;
