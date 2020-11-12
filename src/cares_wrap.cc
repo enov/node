@@ -1246,6 +1246,9 @@ class QueryAnyWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
+    if (naddrttls > static_cast<int>(arraysize(addrttls))) {
+      naddrttls = arraysize(addrttls);
+    }
     uint32_t a_count = ret->Length();
     if (status != ARES_SUCCESS && status != ARES_ENODATA) {
       ParseError(status);
@@ -1293,6 +1296,9 @@ class QueryAnyWrap: public QueryWrap {
                                ret,
                                addr6ttls,
                                &naddr6ttls);
+    if (naddr6ttls > static_cast<int>(arraysize(addr6ttls))) {
+      naddr6ttls = arraysize(addr6ttls);
+    }
     uint32_t aaaa_count = ret->Length() - a_count;
     if (status != ARES_SUCCESS && status != ARES_ENODATA) {
       ParseError(status);
@@ -1431,6 +1437,9 @@ class QueryAWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
+    if (naddrttls > static_cast<int>(arraysize(addrttls))) {
+      naddrttls = arraysize(addrttls);
+    }
     if (status != ARES_SUCCESS) {
       ParseError(status);
       return;
@@ -1477,6 +1486,9 @@ class QueryAaaaWrap: public QueryWrap {
                                ret,
                                addrttls,
                                &naddrttls);
+    if (naddrttls > static_cast<int>(arraysize(addrttls))) {
+      naddrttls = arraysize(addrttls);
+    }
     if (status != ARES_SUCCESS) {
       ParseError(status);
       return;
